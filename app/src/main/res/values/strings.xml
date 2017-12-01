@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Timekeeping</string>
+    <string name="material_calendar_monday">Hai</string>
+    <string name="material_calendar_tuesday">Ba</string>
+    <string name="material_calendar_wednesday">Tư</string>
+    <string name="material_calendar_thursday">Năm</string>
+    <string name="material_calendar_friday">Sáu</string>
+    <string name="material_calendar_saturday">Bảy</string>
+    <string name="material_calendar_sunday">CN</string>
+
+
+    <array name="material_calendar_months_array">
+        <item>Tháng 1</item>
+        <item>Tháng 2</item>
+        <item>Tháng 3</item>
+        <item>Tháng 4</item>
+        <item>Tháng 5</item>
+        <item>Tháng 6</item>
+        <item>Tháng 7</item>
+        <item>Tháng 8</item>
+        <item>Tháng 9</item>
+        <item>Tháng 10</item>
+        <item>Thang 11</item>
+        <item>Tháng 12</item>
+    </array>
+
+    <string name="material_calendar_today_button">Hôm nay</string>
+    <string name="material_calendar_positive_button">Đồng ý</string>
+    <string name="material_calendar_negative_button">Hủy</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

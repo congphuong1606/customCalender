@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv_s_name"
+        android:textColor="@color/colorBlack"
+        android:gravity="center_horizontal"
+        android:text="Ca 1"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:gravity="center_horizontal"
+                android:text="Giờ vào làm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <TextView
+                android:id="@+id/tv_in_time"
+                android:textColor="@color/colorWhite"
+                android:gravity="center_horizontal"
+                android:textSize="40sp"
+                android:background="@color/colorAccent"
+                android:text="8:07"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                android:gravity="center_horizontal"
+                android:text="Giờ nghỉ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+             <TextView
+                 android:id="@+id/tv_out_time"
+                 android:textColor="@color/colorWhite"
+                 android:gravity="center_horizontal"
+                 android:textSize="40sp"
+                 android:background="@color/colorAccent"
+                 android:text="8:07"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+   <LinearLayout
+       android:layout_margin="10dp"
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <TextView
+           android:textColor="@color/colorPrimaryDark"
+           android:textSize="20sp"
+           android:text="Tổng giờ làm : "
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+       <TextView
+           android:textSize="20sp"
+           android:id="@+id/tv_total_time_ca"
+           android:text="1 tiếng 30 phút"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+   </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp"
+            android:text="Ghi chú :"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:background="#f7f0d3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:id="@+id/edt_note"
+                android:text="ahihi"
+                android:gravity="left|top"
+                android:background="@null"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

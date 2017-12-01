@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    tools:context="com.congp.timekeeping.activity.AddShiftActivity">
+
+    <RelativeLayout
+        android:background="#0c71ca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Thêm một ca làm việc"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+
+    </RelativeLayout>
+
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical">
+
+
+        <RadioGroup
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ca 1" />
+
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Ca 2" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#f2e4d5">
+
+        <EditText
+            android:id="@+id/edt_note_shift"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:gravity="top|left"
+            android:hint="Ghi chú"
+            android:minLines="3"
+            android:maxLines="8"
+            android:padding="5dp" />
+    </LinearLayout>
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <LinearLayout
+               android:layout_weight="1"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <LinearLayout
+                   android:layout_marginRight="10dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+
+                   <TextView
+                       android:id="@+id/tv_intime_add_shift"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:text="4.5"
+                       android:textColor="#1d867d"
+                       android:textSize="24sp" />
+
+                   <View
+                       android:layout_width="50dp"
+                       android:layout_height="1dp"
+                       android:layout_gravity="center_horizontal"
+                       android:background="#1d867d">
+
+                   </View>
+               </LinearLayout>
+           </LinearLayout>
+           <LinearLayout
+               android:layout_weight="1"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content">
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+
+                   <TextView
+                       android:id="@+id/tv_outtime_add_shift"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:text="4.5"
+                       android:layout_marginRight="10dp"
+                       android:textColor="#761919"
+                       android:textSize="24sp" />
+
+                   <View
+                       android:layout_marginRight="10dp"
+                       android:layout_width="50dp"
+                       android:layout_height="1dp"
+                       android:layout_gravity="center_horizontal"
+                       android:background="#000">
+
+                   </View>
+               </LinearLayout>
+           </LinearLayout>
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <TextView
+               android:id="@+id/tv_total_shift"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               android:text="4.5"
+               android:textColor="#350909"
+               android:textSize="24sp" />
+
+           <View
+               android:layout_width="50dp"
+               android:layout_height="1dp"
+               android:layout_gravity="center_horizontal"
+               android:background="#000">
+
+           </View>
+       </LinearLayout>
+   </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal">
+
+        <picker.ugurtekbas.com.Picker.Picker xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/amPicker1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            app:canvasColor="#00ffffff"
+            app:dialRadius="60dp"
+            app:hourFormat="false"
+            app:textColor="#1d867d"
+            app:trackSize="15dp" />
+
+        <picker.ugurtekbas.com.Picker.Picker xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/amPicker2"
+            android:layout_width="175dp"
+            android:layout_height="200dp"
+            android:layout_margin="40dp"
+            android:layout_weight="1"
+            app:canvasColor="#00ffffff"
+            app:dialRadius="60dp"
+            app:hourFormat="false"
+            app:textColor="#761919"
+            app:trackSize="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Bắt đầu"
+            android:textColor="#000"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Nghỉ"
+            android:textColor="#000"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:background="@drawable/buton_lg"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:textColor="#fff"
+                android:id="@+id/btn_save_Shift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@null"
+                android:text="lưu lại" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
