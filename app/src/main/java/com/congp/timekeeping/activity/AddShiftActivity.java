@@ -1,8 +1,11 @@
 package com.congp.timekeeping.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -10,6 +13,7 @@ import android.widget.TextView;
 
 import com.congp.timekeeping.DatabaseHandler;
 import com.congp.timekeeping.R;
+import com.congp.timekeeping.common.Contans;
 import com.congp.timekeeping.data.Shift;
 
 import java.util.Calendar;
@@ -49,6 +53,14 @@ public class AddShiftActivity extends AppCompatActivity {
     private int outM;
     private DatabaseHandler databaseHandler;
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i=new Intent(this,NoteActivity.class);
+        i.putExtra("sDate",sDate);
+        startActivity(i);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +78,6 @@ public class AddShiftActivity extends AppCompatActivity {
             c.set(Calendar.MINUTE, 0);
             c.set(Calendar.SECOND, 0);
             amPicker2.setTime(c);
-
             rb2.setChecked(true);
         } else {
             Calendar c = Calendar.getInstance();
@@ -176,13 +187,47 @@ public class AddShiftActivity extends AppCompatActivity {
             sName="Ca 2";
         }
         Shift shift=new Shift(sDate,sName,String.valueOf(inH+":"+inM),
-                String.valueOf(outH+":"+outM),totalT,edtNoteShift.getText().toString());
+                String.valueOf(outH+":"+outM),totalT,edtNoteShift.getText().toString(),sDate.split("tháng ")[1]);
         int e=databaseHandler.existShift(shift);
         if(e!=(-1)){
-            databaseHandler.delete(e);
-        }
+            showD(e,shift);
+
+        }else {
             databaseHandler.addShift(shift);
+            onBackPressed();
+        }
+
 
     }
+
+    private void showD(int e, Shift shift) {
+            final Dialog dialog = new Dialog(this);
+            dialog.setContentView(R.layout.dialog);
+            TextView tvDialogMsg = (TextView) dialog.findViewById(R.id.tv_dialog_msg);
+            Button btnCancel = (Button) dialog.findViewById(R.id.btn_update_cancel);
+            Button btnContinute = (Button) dialog.findViewById(R.id.btn_update_continute);
+            tvDialogMsg.setText(Contans.CONFRIM_UPDATE_SHIFT);
+            btnCancel.setText(Contans.CANCEL);
+            btnContinute.setText(Contans.UPDATE);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+            dialog.setCancelable(false);
+            btnContinute.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    databaseHandler.delete(e);
+                    databaseHandler.addShift(shift);
+                    dialog.dismiss();
+                    onBackPressed();
+                }
+            });
+            btnCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+            dialog.show();
+        }
+
 
 }

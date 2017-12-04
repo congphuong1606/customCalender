@@ -55,7 +55,7 @@ public class NoteActivity extends AppCompatActivity implements ShiftAdapter.OnEv
         shifts=getListShiftCurentDay();
       //  databaseHandler.addShift(new Shift(sDate, sDate, 111111, 222222, 1, "hahahahahah"));
         if(shifts.size()>0){
-            setShift(shifts.get(0));
+            setShift(shifts.get(shifts.size()-1));
         }
         rcvCa.setLayoutManager(new LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, true));
@@ -66,10 +66,14 @@ public class NoteActivity extends AppCompatActivity implements ShiftAdapter.OnEv
     }
 
     private void setShift(Shift shift) {
-        tvNote.setText(shift.getsNote());
+        if(!shift.getsNote().isEmpty()){
+            tvNote.setText(shift.getsNote());
+        }else {
+            tvNote.setText("Không có ghi chú !");
+        }
         tvInTime.setText(String.valueOf(shift.getsInTime()));
         tvOutTime.setText(String.valueOf(shift.getsOutTime()));
-        tvTotalTimeCa.setText(String.valueOf(shift.getsTotalTime()));
+        tvTotalTimeCa.setText(shift.getsTotalTime()+" tiếng");
     }
 
     private ArrayList<Shift> getListShiftCurentDay() {
@@ -79,11 +83,12 @@ public class NoteActivity extends AppCompatActivity implements ShiftAdapter.OnEv
     private void getSDate() {
         Intent intent = getIntent();
         sDate = intent.getStringExtra("sDate");
+        tvCurentDay.setText(sDate);
     }
 
     @Override
     public void onClick(Shift s) {
-
+         setShift(s);
     }
 
     @Override
@@ -92,8 +97,6 @@ public class NoteActivity extends AppCompatActivity implements ShiftAdapter.OnEv
         lnca.setVisibility(View.VISIBLE);
         else lnca.setVisibility(View.GONE);
     }
-
-
 
     @OnClick({R.id.tv_in_time, R.id.tv_out_time,R.id.btn_add_Shift, R.id.tv_note})
     public void onViewClicked(View view) {
@@ -106,6 +109,7 @@ public class NoteActivity extends AppCompatActivity implements ShiftAdapter.OnEv
                 Intent intent=new Intent(this,AddShiftActivity.class);
                 intent.putExtra("sDate",sDate);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.tv_note:
                 break;

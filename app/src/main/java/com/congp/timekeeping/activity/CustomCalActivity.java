@@ -8,10 +8,11 @@ import android.os.Bundle;
 import com.congp.timekeeping.R;
 import com.congp.timekeeping.adapter.EventAdapter;
 import com.congp.timekeeping.adapter.ViewPagerAdapter;
+import com.congp.timekeeping.fragment.CalenderFragment;
 import com.rd.PageIndicatorView;
 
 public class CustomCalActivity extends AppCompatActivity  {
-
+    String month;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +23,11 @@ public class CustomCalActivity extends AppCompatActivity  {
 //Bind the title indicator to the adapter
         PageIndicatorView pageIndicatorView = (PageIndicatorView)findViewById(R.id.pageIndicatorView);
         pageIndicatorView.setViewPager(viewPager);
+        setMonth();
+    }
+
+    private void setMonth() {
+        month = CalenderFragment.getMoth();
     }
 
 

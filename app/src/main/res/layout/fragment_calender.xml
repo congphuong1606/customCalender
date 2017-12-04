@@ -19,7 +19,7 @@
             android:background="@drawable/right_arrow" />
 
         <TextView
-
+            android:id="@+id/tv_curent_month"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"

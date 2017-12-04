@@ -28,6 +28,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String SHIFT_OUTTIME = "sOutTime";
     private static final String SHIFT_TOTAL = "sTotalTime";
     private static final String SHIFT_NOTE = "sNote";
+    private static final String SHIFT_MONTH = "sMonth";
 
 
     public DatabaseHandler(Context context) {
@@ -47,7 +48,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + SHIFT_INTIME + " BIGINT,"
                 + SHIFT_OUTTIME + " BIGINT,"
                 + SHIFT_TOTAL + " INTEGER,"
-                + SHIFT_NOTE + " TEXT" + ")";
+                + SHIFT_NOTE + " TEXT,"
+                + SHIFT_MONTH + " TEXT" + ")";
         db.execSQL(CREATE_SHIFT_TABLE);
     }
 
@@ -74,6 +76,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                  s.setsOutTime(cursor.getString(4));
                  s.setsTotalTime(cursor.getDouble(5));
                  s.setsNote(cursor.getString(6));
+                 s.setsMonth(cursor.getString(7));
                  // Adding Shift to list
                  list.add(s);
              } while (cursor.moveToNext());
@@ -105,6 +108,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         values.put(SHIFT_OUTTIME, shift.getsOutTime());
         values.put(SHIFT_TOTAL, shift.getsTotalTime());
         values.put(SHIFT_NOTE, shift.getsNote());
+        values.put(SHIFT_MONTH, shift.getsMonth());
         db.insert(TB_SHIFT, null, values);
         db.close();
     }
@@ -127,6 +131,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 s.setsOutTime(cursor.getString(4));
                 s.setsTotalTime(cursor.getDouble(5));
                 s.setsNote(cursor.getString(6));
+                s.setsMonth(cursor.getString(7));
                 // Adding Shift to list
                 ShiftList.add(s);
             } while (cursor.moveToNext());
@@ -158,6 +163,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 s.setsOutTime(cursor.getString(4));
                 s.setsTotalTime(cursor.getDouble(5));
                 s.setsNote(cursor.getString(6));
+                s.setsMonth(cursor.getString(7));
                 // Adding contact to list
                 list.add(s);
             } while (cursor.moveToNext());
@@ -166,4 +172,34 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return contact list
         return list;
     }
+     public List<Shift> getAllShiftOfMoth(String month) {
+        List<Shift> list = new ArrayList<Shift>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TB_SHIFT+ " WHERE sMonth = '" + month+"'";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Shift s = new Shift();
+                s.setId(Integer.parseInt(cursor.getString(0)));
+                s.setsName(cursor.getString(1));
+                s.setsDate(cursor.getString(2));
+                s.setsInTime(cursor.getString(3));
+                s.setsOutTime(cursor.getString(4));
+                s.setsTotalTime(cursor.getDouble(5));
+                s.setsNote(cursor.getString(6));
+                s.setsMonth(cursor.getString(7));
+                // Adding contact to list
+                list.add(s);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        // return contact list
+        return list;
+    }
+
 }

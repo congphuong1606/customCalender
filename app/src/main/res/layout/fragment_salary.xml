@@ -1,13 +1,83 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.congp.timekeeping.fragment.SalaryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
 
-</FrameLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#a7dac8"
+            android:padding="10dp">
+
+
+            <TextView
+                android:id="@+id/tv_curent_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@+id/btn_next_month"
+                android:layout_toRightOf="@+id/btn_reback_month"
+                android:gravity="center"
+                android:text="Bảng tính lương"
+                android:textColor="@color/colorAccent" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Tháng"
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+            <biz.kasual.materialnumberpicker.MaterialNumberPicker
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                app:npBackgroundColor="#fff"
+                app:npDefaultValue="10"
+                app:npMaxValue="12"
+                app:npMinValue="1"
+                app:npTextColor="@color/colorPrimary"
+                app:npTextSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="năm"
+                android:textColor="#000"
+                android:textSize="20sp" />
+
+            <biz.kasual.materialnumberpicker.MaterialNumberPicker
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:npBackgroundColor="#fff"
+                app:npDefaultValue="2017"
+                app:npMaxValue="10000"
+                app:npMinValue="2016"
+                app:npTextColor="@color/colorPrimary"
+                app:npTextSize="16sp" />
+            <Button
+                android:text="Xem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

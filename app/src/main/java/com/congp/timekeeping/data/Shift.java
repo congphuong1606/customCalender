@@ -12,14 +12,25 @@ public class Shift {
     String sOutTime;
     double sTotalTime;
     String sNote;
+    String sMonth;
 
-    public Shift(String sDate, String sName, String sInTime, String sOutTime, double sTotalTime, String sNote) {
+
+    public String getsMonth() {
+        return sMonth;
+    }
+
+    public void setsMonth(String sMonth) {
+        this.sMonth = sMonth;
+    }
+
+    public Shift(String sDate, String sName, String sInTime, String sOutTime, double sTotalTime, String sNote,String sMonth) {
         this.sDate = sDate;
         this.sName = sName;
         this.sInTime = sInTime;
         this.sOutTime = sOutTime;
         this.sTotalTime = sTotalTime;
         this.sNote = sNote;
+        this.sMonth= sMonth;
     }
 
     public Shift() {

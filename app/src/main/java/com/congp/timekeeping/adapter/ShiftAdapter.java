@@ -46,7 +46,6 @@ public class ShiftAdapter extends RecyclerView.Adapter<ShiftAdapter.ShiftHolder>
     public void onBindViewHolder(ShiftHolder holder, int position) {
         Shift s = shifts.get(position);
         listener.setGV(shifts.size());
-
         holder.btnShift.setText(s.getsName());
         holder.btnShift.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +75,6 @@ public class ShiftAdapter extends RecyclerView.Adapter<ShiftAdapter.ShiftHolder>
 
     public interface OnEventClick {
         void onClick(Shift s);
-
         void setGV(int size);
     }
 }
