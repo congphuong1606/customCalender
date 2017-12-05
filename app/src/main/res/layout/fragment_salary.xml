@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     tools:context="com.congp.timekeeping.fragment.SalaryFragment">
 
     <LinearLayout
@@ -18,12 +19,9 @@
 
 
             <TextView
-                android:id="@+id/tv_curent_month"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_centerInParent="true"
-                android:layout_toLeftOf="@+id/btn_next_month"
-                android:layout_toRightOf="@+id/btn_reback_month"
                 android:gravity="center"
                 android:text="Bảng tính lương"
                 android:textColor="@color/colorAccent" />
@@ -46,6 +44,7 @@
                 android:textSize="20sp" />
 
             <biz.kasual.materialnumberpicker.MaterialNumberPicker
+                android:id="@+id/pk_month"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 app:npBackgroundColor="#fff"
@@ -64,19 +63,167 @@
                 android:textSize="20sp" />
 
             <biz.kasual.materialnumberpicker.MaterialNumberPicker
+                android:id="@+id/pk_year"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:background="#fff"
                 app:npBackgroundColor="#fff"
                 app:npDefaultValue="2017"
                 app:npMaxValue="10000"
                 app:npMinValue="2016"
                 app:npTextColor="@color/colorPrimary"
                 app:npTextSize="16sp" />
+
             <Button
-                android:text="Xem"
+                android:id="@+id/btn_xem"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Xem" />
         </LinearLayout>
+
+        <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:background="#000">-->
+
+        <!--</View>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#000">
+
+            </View>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Bắt đầu" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#000">
+
+            </View>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Giờ nghỉ" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#000">
+
+            </View>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="tổng " />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#000">
+
+            </View>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ghi chú" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#000">
+
+            </View>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"></View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/ln1">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <LinearLayout
+                android:id="@+id/ln1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lương tháng = "
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/tv_total_time_month"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="45.7 "
+                    android:textColor="#000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="x"
+                    android:textColor="#e15b5b" />
+
+                <TextView
+                    android:id="@+id/tv_hangua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="15k"
+                    android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/tv_salary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="= 4.500.675 vnđ"
+                    android:textColor="#000" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
     </LinearLayout>
 
 

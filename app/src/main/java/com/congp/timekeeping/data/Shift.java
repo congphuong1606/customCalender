@@ -6,6 +6,7 @@ package com.congp.timekeeping.data;
 
 public class Shift {
     int id;
+    int sDay;
     String sDate;
     String sName;
     String sInTime;
@@ -13,6 +14,14 @@ public class Shift {
     double sTotalTime;
     String sNote;
     String sMonth;
+
+    public Shift(int i,String sInTime, String sOutTime, double sTotalTime, String sNote) {
+        this.sDay = i;
+        this.sInTime = sInTime;
+        this.sOutTime = sOutTime;
+        this.sTotalTime = sTotalTime;
+        this.sNote = sNote;
+    }
 
 
     public String getsMonth() {
@@ -31,6 +40,26 @@ public class Shift {
         this.sTotalTime = sTotalTime;
         this.sNote = sNote;
         this.sMonth= sMonth;
+    }
+
+    public Shift(int id, int sDay, String sDate, String sName, String sInTime, String sOutTime, double sTotalTime, String sNote, String sMonth) {
+        this.id = id;
+        this.sDay = sDay;
+        this.sDate = sDate;
+        this.sName = sName;
+        this.sInTime = sInTime;
+        this.sOutTime = sOutTime;
+        this.sTotalTime = sTotalTime;
+        this.sNote = sNote;
+        this.sMonth = sMonth;
+    }
+
+    public int getsDay() {
+        return sDay;
+    }
+
+    public void setsDay(int sDay) {
+        this.sDay = sDay;
     }
 
     public Shift() {

@@ -10,8 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.congp.timekeeping.R;
-import com.congp.timekeeping.activity.MainActivity;
-import com.congp.timekeeping.activity.NoteActivity;
 import com.congp.timekeeping.data.Event;
 
 import java.util.ArrayList;

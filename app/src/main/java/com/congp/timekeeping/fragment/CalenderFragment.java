@@ -25,6 +25,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
 import butterknife.BindView;
@@ -46,6 +47,7 @@ public class CalenderFragment extends Fragment implements EventAdapter.OnEventCl
     private static int year;
     private static int month;
     private int day;
+    private Date cdate;
 
     public static CalenderFragment newInstance() {
         CalenderFragment fragment = new CalenderFragment();
@@ -73,26 +75,26 @@ public class CalenderFragment extends Fragment implements EventAdapter.OnEventCl
         adapter = new EventAdapter(events);
         adapter.setEvents(this::onClick);
         recyclerView.setAdapter(adapter);
-        Calendar calendar = Calendar.getInstance();
+
         DateFormat sdf = new SimpleDateFormat("EEEE");
         DateFormat yfm = new SimpleDateFormat("yyyy");
         DateFormat mfm = new SimpleDateFormat("MM");
         DateFormat dfm = new SimpleDateFormat("dd");
-        Date d = new Date();
-        String dayOfTheWeek = sdf.format(d);
-        year = Integer.parseInt(yfm.format(d));
-        month = Integer.parseInt(mfm.format(d));
-        day = Integer.parseInt(dfm.format(d));
+
+
+
+
+
+        Calendar calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH)+1;
+        Date date=new Date(year-1900,month-1,1);
         tvCurentMonth.setText("Tháng " + month + " năm " + year);
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month);
-        calendar.set(Calendar.DATE, day);
-        Calendar date = Calendar.getInstance();
-        date.set(Calendar.DAY_OF_MONTH, 1);
-        String firtDayOfMonth = String.valueOf(date.getTime()).split(" ")[0] + "day";
+
+        String firtDayOfMonth = sdf.format(date);
         int lastDayOfw = dayNameComparison(firtDayOfMonth);
-        int daysLastMonth = getDaysInMonthInPresentYear(month - 2);
-        int daysInPresentMonth = getDaysInMonthInPresentYear(getA(month - 1));
+        int daysLastMonth = getDaysInMonthInPresentYear(month - 2,year);
+        int daysInPresentMonth = getDaysInMonthInPresentYear(getA(month - 1),year);
         events.clear();
         for (int a = (daysLastMonth - lastDayOfw + 1); a <= daysLastMonth; a++) {
             events.add(new Event("Ngày " + a + " tháng " + getA(month - 1) + " năm " + year, a, 0, 0));
@@ -107,6 +109,9 @@ public class CalenderFragment extends Fragment implements EventAdapter.OnEventCl
             }
         }
         adapter.notifyDataSetChanged();
+
+
+        int a=getFirstDay(2017,12);
         return v;
     }
      public static String getMoth(){
@@ -122,13 +127,12 @@ public class CalenderFragment extends Fragment implements EventAdapter.OnEventCl
         return A;
     }
 
-    public static int getDaysInMonthInPresentYear(int monthNumber) {
+    private static int getDaysInMonthInPresentYear(int monthNumber,int year) {
         int days = 0;
         if (monthNumber >= 0 && monthNumber < 12) {
             try {
                 Calendar calendar = Calendar.getInstance();
                 int date = 1;
-                int year = calendar.get(Calendar.YEAR);
                 calendar.set(year, monthNumber, date);
                 days = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
             } catch (Exception e) {
@@ -182,7 +186,11 @@ public class CalenderFragment extends Fragment implements EventAdapter.OnEventCl
         intent.putExtra("sDate", s);
         startActivity(intent);
     }
-
+    public int getFirstDay(int year,int month){
+        Calendar c=new GregorianCalendar(year,month,1);
+        c.set(Calendar.DAY_OF_MONTH, 1);
+        return c.get(Calendar.DAY_OF_WEEK);
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

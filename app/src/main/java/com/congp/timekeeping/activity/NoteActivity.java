@@ -58,7 +58,7 @@ public class NoteActivity extends AppCompatActivity implements ShiftAdapter.OnEv
             setShift(shifts.get(shifts.size()-1));
         }
         rcvCa.setLayoutManager(new LinearLayoutManager(this,
-                LinearLayoutManager.HORIZONTAL, true));
+                LinearLayoutManager.HORIZONTAL, false));
         adapter = new ShiftAdapter(shifts);
         adapter.setEvents(this);
         rcvCa.setAdapter(adapter);

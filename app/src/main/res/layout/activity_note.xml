@@ -78,7 +78,6 @@
     <android.support.v7.widget.RecyclerView
         android:layout_marginTop="30dp"
         android:id="@+id/rcv_ca"
-        android:gravity="top"
         android:layout_below="@+id/tv_curent_day"
         android:layout_width="match_parent"
         android:layout_height="60dp">

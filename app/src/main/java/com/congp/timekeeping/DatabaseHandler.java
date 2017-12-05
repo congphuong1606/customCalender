@@ -202,4 +202,33 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return list;
     }
 
+    public List<Shift> getListShiftofDay(String sDate) {
+        List<Shift> list = new ArrayList<Shift>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TB_SHIFT+ " WHERE sDate = '" + sDate+"'";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Shift s = new Shift();
+                s.setId(Integer.parseInt(cursor.getString(0)));
+                s.setsName(cursor.getString(1));
+                s.setsDate(cursor.getString(2));
+                s.setsInTime(cursor.getString(3));
+                s.setsOutTime(cursor.getString(4));
+                s.setsTotalTime(cursor.getDouble(5));
+                s.setsNote(cursor.getString(6));
+                s.setsMonth(cursor.getString(7));
+                // Adding contact to list
+                list.add(s);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        // return contact list
+        return list;
+    }
 }
