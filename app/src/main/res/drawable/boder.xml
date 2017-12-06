@@ -7,12 +7,12 @@
     <!--<solid android:color="#FFFFFF" />-->
     <gradient
         android:angle="225"
-        android:startColor="#1478d6"
-        android:endColor="#1478d6"/>
+        android:startColor="#0b7ae2"
+        android:endColor="#f5a7dac8"/>
     <corners
-        android:bottomLeftRadius="20dp"
-        android:bottomRightRadius="20dp"
-        android:topLeftRadius="20dp"
-        android:topRightRadius="20dp" />
+        android:bottomLeftRadius="10dp"
+        android:bottomRightRadius="10dp"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp" />
 
 </shape>

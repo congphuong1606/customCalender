@@ -46,7 +46,7 @@ public class CalenderFragment extends Fragment implements EventAdapter.OnEventCl
     RecyclerView recyclerView;
     private static int year;
     private static int month;
-    private int day;
+    private int day=1;
     private Date cdate;
 
     public static CalenderFragment newInstance() {
@@ -68,11 +68,12 @@ public class CalenderFragment extends Fragment implements EventAdapter.OnEventCl
         View v = inflater.inflate(R.layout.fragment_calender, container, false);
         events = new ArrayList<>();
         ButterKnife.bind(this, v);
+        getCalender();
         GridLayoutManager layoutManager =
                 new GridLayoutManager(getActivity(), 7);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new EventAdapter(events);
+        adapter = new EventAdapter(events,day);
         adapter.setEvents(this::onClick);
         recyclerView.setAdapter(adapter);
 
@@ -85,9 +86,7 @@ public class CalenderFragment extends Fragment implements EventAdapter.OnEventCl
 
 
 
-        Calendar calendar = Calendar.getInstance();
-        year = calendar.get(Calendar.YEAR);
-        month = calendar.get(Calendar.MONTH)+1;
+
         Date date=new Date(year-1900,month-1,1);
         tvCurentMonth.setText("Tháng " + month + " năm " + year);
 
@@ -103,7 +102,7 @@ public class CalenderFragment extends Fragment implements EventAdapter.OnEventCl
             events.add(new Event("Ngày "+i +  " tháng " + month + " năm " + year, i, month, year));
         }
         for (int b = 1; b < 8; b++) {
-            events.add(new Event("Ngày "+b +  " tháng " + getA(month + 1) + "+" + year, b, 0, 0));
+            events.add(new Event("Ngày "+b +  " tháng " + getA(month + 1) + "+" + year, b, 13, 0));
             if (events.size() == 42) {
                 break;
             }
@@ -111,10 +110,18 @@ public class CalenderFragment extends Fragment implements EventAdapter.OnEventCl
         adapter.notifyDataSetChanged();
 
 
-        int a=getFirstDay(2017,12);
+
         return v;
     }
-     public static String getMoth(){
+
+    private void getCalender() {
+        Calendar calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        day = calendar.get(Calendar.DATE);
+        month = calendar.get(Calendar.MONTH)+1;
+    }
+
+    public static String getMoth(){
         return month+ " năm " +year;
       }
     private int getA(int i) {
@@ -186,11 +193,7 @@ public class CalenderFragment extends Fragment implements EventAdapter.OnEventCl
         intent.putExtra("sDate", s);
         startActivity(intent);
     }
-    public int getFirstDay(int year,int month){
-        Calendar c=new GregorianCalendar(year,month,1);
-        c.set(Calendar.DAY_OF_MONTH, 1);
-        return c.get(Calendar.DAY_OF_WEEK);
-    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

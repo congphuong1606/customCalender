@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000">
 
+        </View>
         <TextView
+            android:gravity="center"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:lines="1"
             android:id="@+id/tv_day"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,6 +31,10 @@
         </View>
 
         <TextView
+            android:gravity="center"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:lines="1"
             android:id="@+id/tv_in_time_salary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,6 +49,10 @@
         </View>
 
         <TextView
+            android:gravity="center"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:lines="1"
             android:id="@+id/tv_out_time_salary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,6 +67,10 @@
         </View>
 
         <TextView
+            android:gravity="center"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:lines="1"
             android:id="@+id/tv_total_time_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,6 +78,7 @@
             android:text="tổng " />
 
         <View
+
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="#000">
@@ -63,6 +86,10 @@
         </View>
 
         <TextView
+            android:gravity="center"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:lines="1"
             android:id="@+id/tv_note_salary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -76,4 +103,8 @@
 
         </View>
     </LinearLayout>
+    <View
+        android:background="#000"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
 </LinearLayout>

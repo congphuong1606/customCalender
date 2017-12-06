@@ -1,6 +1,7 @@
 package com.congp.timekeeping.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +42,7 @@ public class SalaryShiftAdapter extends RecyclerView.Adapter<SalaryShiftAdapter.
     public void onBindViewHolder(Holder holder, int position) {
         Shift s = shifts.get(position);
         holder.tvDay.setText(String.valueOf(s.getsDay()));
+        holder.tvDay.setTextColor(context.getResources().getColor(R.color.colorPrimaryDark));
         holder.tvInTimeSalary.setText(s.getsInTime());
         holder.tvOutTimeSalary.setText(s.getsOutTime());
         holder.tvTotalTimeDate.setText(String.valueOf(s.getsTotalTime()));

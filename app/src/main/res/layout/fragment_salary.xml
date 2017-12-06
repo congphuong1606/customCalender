@@ -23,8 +23,9 @@
                 android:layout_height="30dp"
                 android:layout_centerInParent="true"
                 android:gravity="center"
+                android:textSize="22sp"
                 android:text="Bảng tính lương"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorPrimaryDark" />
 
 
         </RelativeLayout>
@@ -32,7 +33,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="5dp"
             android:orientation="horizontal">
 
             <TextView
@@ -41,11 +44,11 @@
                 android:layout_gravity="center_vertical"
                 android:text="Tháng"
                 android:textColor="#000"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <biz.kasual.materialnumberpicker.MaterialNumberPicker
                 android:id="@+id/pk_month"
-                android:layout_width="wrap_content"
+                android:layout_width="45dp"
                 android:layout_height="50dp"
                 app:npBackgroundColor="#fff"
                 app:npDefaultValue="10"
@@ -60,7 +63,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="năm"
                 android:textColor="#000"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <biz.kasual.materialnumberpicker.MaterialNumberPicker
                 android:id="@+id/pk_year"
@@ -70,14 +73,43 @@
                 app:npBackgroundColor="#fff"
                 app:npDefaultValue="2017"
                 app:npMaxValue="10000"
-                app:npMinValue="2016"
+                app:npMinValue="2010"
+                app:npTextColor="@color/colorPrimary"
+                app:npTextSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Hệ số"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <biz.kasual.materialnumberpicker.MaterialNumberPicker
+                android:id="@+id/pk_heso"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                app:npBackgroundColor="#fff"
+                app:npDefaultValue="15"
+                app:npMaxValue="10000"
+                app:npMinValue="1"
                 app:npTextColor="@color/colorPrimary"
                 app:npTextSize="16sp" />
 
             <Button
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:drawablePadding="2dp"
+                android:paddingLeft="5dp"
+                android:gravity="left|center_vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/boder"
+                android:drawableLeft="@drawable/ic_autorenew"
                 android:id="@+id/btn_xem"
+                android:textColor="#fff"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
+                android:textAllCaps="false"
                 android:text="Xem" />
         </LinearLayout>
 
@@ -93,7 +125,18 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/a">
+
+            </View>
             <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:lines="1"
+                android:gravity="center"
+                android:id="@+id/tv_month"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -101,11 +144,15 @@
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="#000">
+                android:background="@drawable/a">
 
             </View>
 
             <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:lines="1"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -114,11 +161,15 @@
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="#000">
+                android:background="@drawable/a">
 
             </View>
 
             <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:lines="1"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -127,24 +178,33 @@
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="#000">
+                android:background="@drawable/a">
 
             </View>
 
             <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:lines="1"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="tổng " />
 
             <View
+
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="#000">
+                android:background="@drawable/a">
 
             </View>
 
             <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:lines="1"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -153,7 +213,7 @@
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="#000">
+                android:background="@drawable/a">
 
             </View>
         </LinearLayout>
@@ -176,8 +236,9 @@
             </android.support.v7.widget.RecyclerView>
 
             <LinearLayout
+                android:layout_centerHorizontal="true"
                 android:id="@+id/ln1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_margin="10dp"
@@ -205,7 +266,7 @@
                     android:textColor="#e15b5b" />
 
                 <TextView
-                    android:id="@+id/tv_hangua"
+                    android:id="@+id/tv_heso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
